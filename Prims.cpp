@@ -24,9 +24,9 @@ void PrimsMST(int G[V][V], int n){
     int T[2][V-2] {0};
  
     // Initial: Find min cost edge
-    for (int i {1}; i<V; i++){
+    for (int i=1; i<V; i++){
         track[i] = I;  // Initialize track array with INFINITY
-        for (int j {i}; j<V; j++){
+        for (int j=i; j<V; j++){
             if (G[i][j] < min){
                 min = G[i][j];
                 u = i;
@@ -39,7 +39,7 @@ void PrimsMST(int G[V][V], int n){
     track[u] = track[v] = 0;
  
     // Initialize track array to track min cost edges
-    for (int i {1}; i<V; i++){
+    for (int i=1; i<V; i++){
         if (track[i] != 0){
             if (G[i][u] < G[i][v]){
                 track[i] = u;
@@ -50,7 +50,7 @@ void PrimsMST(int G[V][V], int n){
     }
  
     // Repeat
-    for (int i {1}; i<n-1; i++){
+    for (int i=1; i<n-1; i++){
         int k;
         min = I;
         for (int j {1}; j<V; j++){
